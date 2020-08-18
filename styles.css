@@ -19,6 +19,9 @@ li{
 input:focus{
   outline: none;
 }
+button:focus {
+  outline: none;
+}
 .center {
   align-self: center;
 }

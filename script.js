@@ -5,10 +5,11 @@ const classNames = {
   TODO_DELETE: 'todo-delete',
 }
 
+
 // const list = document.getElementsByClassName('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
- 
+
 
 function getInput(){
   let input = document.getElementById('input-item').value,
@@ -30,7 +31,8 @@ function getInput(){
        increase()
        cleanInput.value = ""
 
-       clearList(button, li);
+       clearList(button, li) 
+       console.log(li)
   }
 }
 
@@ -46,8 +48,10 @@ const checkboxInput = checkbox => {
     checkbox.addEventListener( 'change', function() {
     if(this.checked) {
       uncheckedCountSpan.textContent++
-    } else {
+      state = this.checked
+    }else if(!this.checked) {
       uncheckedCountSpan.textContent--
+      state = this.checked
     }
   });
 }
@@ -67,5 +71,6 @@ const increase = () => {
 const clearList = (botton, li) => {
   botton.addEventListener("click", function(){
     li.remove()
+    itemCountSpan.textContent -= 1
   })
 }
